@@ -1,12 +1,15 @@
 import React from 'react'
-import '../App.css';
-import data from '../utils/dataStore';
+import { inject, observer } from 'mobx-react';
 
-const Cats = (props) => {
-    console.log("TCL: Cats -> props", props);
+import '../App.css';
+
+const Cats = inject('store')(observer(({ store }) => {
+    console.log("TCL: Cats -> store", store)
+    /* const index = parseInt(location.pathname.match(/\d+/g)[0]);
+    console.log("TCL: Cats -> index", index) */
     return <div className="App">
         <h1>Cat</h1>
     </div>
-};
+}));
 
 export default Cats;
